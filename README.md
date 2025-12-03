@@ -24,7 +24,7 @@ Implementación orientada a objetos que simula un chatbot de consola para gestio
 ```bash
 python -m src.main
 ```
-Escribe comandos como `dir /Documentos`, `rmdir /Documentos/Fotos`, `clear`, `log 5` o `salir`.
+Escribe comandos como `dir /Documentos`, `mkdir /Documentos/NuevaCarpeta`, `rmdir /Documentos/Fotos`, `clear`, `log 5` o `salir`.
 
 ### Comando listo para demo en PowerShell
 Reemplaza `TU_API_KEY` con tu clave real antes de pegarlo en la terminal del laboratorio:
@@ -41,7 +41,7 @@ Si usas otro proveedor (por ejemplo `openai`), basta con cambiar el nombre de la
 - Cada sugerencia aceptada queda registrada en el historial bajo la etiqueta `ai`.
 
 ## Próximos pasos
-1. Ampliar comandos (`mkdir`, `search`).
+1. Ampliar comandos (`search`).
 2. Persistir historial en disco usando `LogService.dump_to_file`.
 3. Agregar pruebas unitarias (ver sección Tests pendiente).
 

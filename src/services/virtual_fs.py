@@ -63,6 +63,23 @@ class VirtualFileSystem:
         parent.children = [child for child in parent.children if child is not node]
         return node.name
 
+    def make_directory(self, path: str) -> str:
+        normalized = path.strip()
+        if normalized in ("", "/"):
+            raise ValueError("Debe indicar la ruta completa de la nueva carpeta")
+        parts = self._split(normalized)
+        if len(parts) < 2:
+            raise ValueError("La ruta debe incluir la carpeta raíz y el nombre a crear")
+        new_name = parts[-1]
+        parent_path = "/" + "/".join(parts[:-1])
+        parent = self._resolve(parent_path)
+        if not parent.is_directory():
+            raise ValueError("Solo se pueden crear carpetas dentro de otras carpetas")
+        if parent.find_child(new_name):
+            raise ValueError(f"Ya existe '{new_name}' en la ruta indicada")
+        parent.children.append(FileSystemNode(name=new_name, type="directory"))
+        return new_name
+
     def snapshot(self) -> Dict:
         return {"root": self._root.to_dict()}
 

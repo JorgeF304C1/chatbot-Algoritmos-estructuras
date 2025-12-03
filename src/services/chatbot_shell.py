@@ -8,6 +8,7 @@ from ..commands.base import CommandContext, CommandRegistry
 from ..commands.clear_log_command import ClearLogCommand
 from ..commands.dir_command import DirCommand
 from ..commands.log_command import LogCommand
+from ..commands.mkdir_command import MkdirCommand
 from ..commands.rmdir_command import RmdirCommand
 from .ai_service import AIService, AISettings
 from .backup_service import BackupService
@@ -46,6 +47,7 @@ class ChatbotShell:
 
     def _register_commands(self) -> None:
         self._registry.register(DirCommand())
+        self._registry.register(MkdirCommand())
         self._registry.register(RmdirCommand())
         self._registry.register(ClearLogCommand())
         self._registry.register(LogCommand())
@@ -93,7 +95,12 @@ class ChatbotShell:
                 self._logger.add_entry("error", message)
                 return f"Error: {message}"
 
-        result = command.execute(args, self._context)
+        try:
+            result = command.execute(args, self._context)
+        except ValueError as command_error:
+            message = str(command_error)
+            self._logger.add_entry("error", message)
+            return f"Error: {message}"
         if self._context.should_backup(command_name):
             self._backup.queue_snapshot(command_name, self._filesystem.snapshot())
             self._backup.process()
