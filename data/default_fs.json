@@ -1,0 +1,23 @@
+{
+  "root": {
+    "name": "Documentos",
+    "type": "directory",
+    "children": [
+      {
+        "name": "Proyectos",
+        "type": "directory",
+        "children": [
+          {"name": "Idea.txt", "type": "file"},
+          {"name": "Plan.txt", "type": "file"}
+        ]
+      },
+      {
+        "name": "Fotos",
+        "type": "directory",
+        "children": []
+      },
+      {"name": "Notas.txt", "type": "file"},
+      {"name": "Tareas.txt", "type": "file"}
+    ]
+  }
+}

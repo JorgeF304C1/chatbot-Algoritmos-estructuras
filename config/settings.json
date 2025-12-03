@@ -1,0 +1,23 @@
+{
+  "app_name": "ChatbotDirectorio",
+  "default_user": "Usuario",
+  "filesystem_seed": "data/default_fs.json",
+  "backup_dir": "data/backups",
+  "log_file": "data/log.txt",
+  "max_log_entries": 50,
+  "enable_auto_backup": true,
+  "auto_backup_commands": ["dir", "mkdir", "rmdir"],
+  "ai": {
+    "enabled": true,
+    "provider": "gemini",
+    "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent",
+    "model": "gemini-flash-latest",
+    "api_key_env": "GEMINI_API_KEY",
+    "system_prompt": "Eres un asistente que mapea frases a comandos dir/rmdir/log/clear y responde cortésmente."
+  },
+  "default_commands": [
+    "clear log",
+    "dir /Documentos",
+    "dir /Documentos/Proyectos"
+  ]
+}

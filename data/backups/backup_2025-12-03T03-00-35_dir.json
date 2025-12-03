@@ -1,0 +1,39 @@
+{
+  "command": "dir",
+  "timestamp": "2025-12-03T03:00:35",
+  "snapshot": {
+    "root": {
+      "name": "Documentos",
+      "type": "directory",
+      "children": [
+        {
+          "name": "Proyectos",
+          "type": "directory",
+          "children": [
+            {
+              "name": "Idea.txt",
+              "type": "file"
+            },
+            {
+              "name": "Plan.txt",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "Fotos",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "Notas.txt",
+          "type": "file"
+        },
+        {
+          "name": "Tareas.txt",
+          "type": "file"
+        }
+      ]
+    }
+  }
+}

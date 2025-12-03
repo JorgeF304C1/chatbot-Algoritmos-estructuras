@@ -1,0 +1,6 @@
+# Comandos de ejemplo para pruebas
+clear log
+dir /Documentos
+dir /Documentos/Proyectos
+rmdir /Documentos/Fotos
+log 3
